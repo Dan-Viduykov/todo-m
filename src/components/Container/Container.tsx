@@ -4,7 +4,9 @@ import styles from "./Container.module.scss";
 const Container: FC<PropsWithChildren> = ({ children }) => {
     return (
         <main className={styles.container}>
-            {children}
+            <div className={styles.wrap}>
+                {children}
+            </div>
         </main>
     )
 }

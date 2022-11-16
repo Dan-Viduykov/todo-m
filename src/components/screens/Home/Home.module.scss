@@ -1,1 +1,21 @@
-@import '@/styles/main.scss'
+@import '@/styles/main.scss';
+
+.wrap {
+    padding: 30px 20px;
+    background: $gradient-bg-gray;
+    color: $color-text;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-size: 36px;
+} 
+
+.filter {
+
+}
