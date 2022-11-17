@@ -13,7 +13,7 @@ export interface ITodo {
     done: boolean;
 }
 
-const todos = [
+const todos: ITodo[] = [
     {
         id: 'dc',
         title: 'drinc coffe',
