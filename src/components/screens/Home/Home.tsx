@@ -4,6 +4,7 @@ import Filter from "@/components/Filter";
 import TodoList from "@/components/TodoList";
 import AddTodoButton from "@/components/AddTodoButton";
 import Modal from "@/components/Modal";
+import AddTodoForm from "@/components/AddTodoForm";
 
 import styles from "./Home.module.scss";
 
@@ -16,7 +17,7 @@ const Home: FC = () => {
             </div>
             <TodoList className={styles.todoList} />
             <AddTodoButton className={styles.buttonAddTodo} />
-            <Modal>Hello</Modal>
+            <Modal><AddTodoForm /></Modal>
         </div>
     )
 }

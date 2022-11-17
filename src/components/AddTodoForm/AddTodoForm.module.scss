@@ -1,1 +1,63 @@
 @import '@/styles/main.scss';
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    margin-bottom: 24px;
+    text-align: center;
+    font-size: 26px;
+}
+
+.field {
+}
+
+.label {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.text {
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.input {
+    max-width: 400px;
+    padding: 8px 16px;
+    flex-grow: 1;
+    background: transparent;
+    border: 1px solid rgba($color-text, 0.2);
+    border-radius: 8px;
+    color: $color-text;
+    resize: none;
+    
+    &.textarea {
+        height: auto;
+        overflow: hidden;
+    }
+}
+
+.button {
+    margin: 20px auto 0;
+    width: 100px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background: $color-secondary;
+    font-size: 18px;
+    color: $color-black;
+    transition: .2s;
+
+    &:hover {
+        box-shadow: 0 0 5px 1px $color-secondary;
+        transform: scale(102%);
+    }
+    
+    &:active {
+        transform: scale(100%);
+    }
+}

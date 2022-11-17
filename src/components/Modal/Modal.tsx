@@ -1,13 +1,36 @@
-import { FC, PropsWithChildren } from "react";
+import { FC, MouseEvent, PropsWithChildren, useState } from "react";
 import styles from "./Modal.module.scss";
 
 interface ModalProps {
     className?: string;
+    active?: boolean;
 }
 
-const Modal: FC<PropsWithChildren<ModalProps>> = ({ children, className }) => {
+const Modal: FC<PropsWithChildren<ModalProps>> = ({ children, className, active: activeModal = false }) => {
+    const [ active, setActive ] = useState(activeModal)
+
+    const handleClickOutside = (event: MouseEvent) => {
+        const target = event.target as HTMLElement;
+
+        if (target.id === 'outside') {
+            setActive(false)
+        }
+    }
+
+    if (!active) {
+        return null
+    }
+    
     return (
-        <div className={`${styles.modal} ${className}`}>
+        <div
+            id="outside"
+            className={`
+                ${styles.modal}
+                ${className}
+            `}
+            onClick={handleClickOutside}
+            
+        >
             <div className={styles.container}>
                 {children}
             </div>
