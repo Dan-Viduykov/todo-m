@@ -1,7 +1,10 @@
 import { FC } from "react";
+
 import Filter from "@/components/Filter";
 import TodoList from "@/components/TodoList";
 import AddTodoButton from "@/components/AddTodoButton";
+import Modal from "@/components/Modal";
+
 import styles from "./Home.module.scss";
 
 const Home: FC = () => {
@@ -13,6 +16,7 @@ const Home: FC = () => {
             </div>
             <TodoList className={styles.todoList} />
             <AddTodoButton className={styles.buttonAddTodo} />
+            <Modal>Hello</Modal>
         </div>
     )
 }
