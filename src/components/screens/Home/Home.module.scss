@@ -7,9 +7,22 @@
 }
 
 .head {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+
+    &::after {
+        content: '';
+        width: calc(100% - 60px);
+        height: 1px;
+        background: rgba($color-text, 0.2);
+        position: absolute;
+        bottom: 0;
+        left: 30px;
+    }
 }
 
 .title {
