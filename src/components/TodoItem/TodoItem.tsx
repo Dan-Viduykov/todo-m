@@ -1,23 +1,22 @@
 import { FC } from "react";
+import TodoStore, { ITodo } from "@/store/todoStore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import styles from "./TodoItem.module.scss";
-import todo ,{ ITodo } from "@/store/todo";
-import { observer } from "mobx-react";
 
 interface TodoItemProps {
     className?: string;
     todo: ITodo
 }
 
-const TodoItem: FC<TodoItemProps> = observer(({ className, todo: todoItem }) => {
+const TodoItem: FC<TodoItemProps> = ({ className, todo: todoItem }) => {
     const { id, title, description, completed } = todoItem;
 
     const checkboxHandler = () => {
-        todo.completeTodo(id)
+        TodoStore.completeTodo(id)
     }
     const handleDelete = () => {
-        todo.removeTodo(id)
+        TodoStore.removeTodo(id)
     }
 
     return (
@@ -46,6 +45,6 @@ const TodoItem: FC<TodoItemProps> = observer(({ className, todo: todoItem }) => 
             </div>
         </div>
     )
-})
+}
 
 export default TodoItem

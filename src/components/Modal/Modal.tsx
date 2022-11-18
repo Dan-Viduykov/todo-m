@@ -1,26 +1,27 @@
-import { FC, MouseEvent, PropsWithChildren, useState } from "react";
+import modalStore from "@/store/modalStore";
+import { observer } from "mobx-react";
+import { FC, MouseEvent, PropsWithChildren } from "react";
 import styles from "./Modal.module.scss";
 
 interface ModalProps {
     className?: string;
-    active?: boolean;
+    active: boolean;
 }
 
-const Modal: FC<PropsWithChildren<ModalProps>> = ({ children, className, active: activeModal = false }) => {
-    const [ active, setActive ] = useState(activeModal)
+const Modal: FC<PropsWithChildren<ModalProps>> = ({ children, className, active }) => {
 
     const handleClickOutside = (event: MouseEvent) => {
         const target = event.target as HTMLElement;
 
         if (target.id === 'outside') {
-            setActive(false)
+            modalStore.changeState()
         }
     }
 
     if (!active) {
         return null
     }
-    
+
     return (
         <div
             id="outside"
@@ -38,4 +39,4 @@ const Modal: FC<PropsWithChildren<ModalProps>> = ({ children, className, active:
     )
 }
 
-export default Modal;
+export default observer(Modal);
