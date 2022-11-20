@@ -1,21 +1,15 @@
-import { FC, MouseEvent, useState } from "react";
+import { FC, MouseEvent } from "react";
+import { observer } from "mobx-react-lite";
+import filterStore, { filterValues, TFilters } from "@/store/filterStore";
 import styles from "./Filter.module.scss";
 
 interface FilterProps {
     className?: string;
 }
 
-const filterValues = [
-    { name: 'all', label: 'All' },
-    { name: 'done', label: 'Done' },
-    { name: 'undone', label: 'Undone' }
-]
-
 const Filter: FC<FilterProps> = ({ className }) => {
-    const [ activeFilter, setActiveFilter ] = useState('all')
-
     const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-        setActiveFilter(event.currentTarget.ariaLabel as string)
+        filterStore.setFilter(event.currentTarget.ariaLabel?.toString() as TFilters)
     }
 
     const elements = filterValues.map(({name, label}, index) => {
@@ -24,7 +18,7 @@ const Filter: FC<FilterProps> = ({ className }) => {
                 key={index}
                 className={`
                     ${styles.item}
-                    ${name === activeFilter ? styles.item_active : null}
+                    ${name === filterStore.filterType ? styles.item_active : null}
                 `}
             >    
                 <button
@@ -44,4 +38,4 @@ const Filter: FC<FilterProps> = ({ className }) => {
     )
 }
 
-export default Filter
+export default observer(Filter)

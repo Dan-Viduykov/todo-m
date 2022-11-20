@@ -1,4 +1,5 @@
 import { action, makeAutoObservable, observable } from 'mobx'
+import { TFilters } from './filterStore';
 
 export interface ITodo {
     id: string;
@@ -50,15 +51,22 @@ class TodoStore {
         await this.fetchTodos()
     }
 
-    @action async fetchTodos() {
+    @action async fetchTodos(filterType: TFilters = 'all') {
         this.isLoading = true;
+        
+        let query = '';
 
-        await fetch('http://localhost:4000/todos')
+        if (filterType === 'done') {
+            query += 'completed=true'
+        } else if (filterType === 'undone') {
+            query += 'completed=false'
+        }
+
+        await fetch(`http://localhost:4000/todos?${query}`)
             .then(response => response.json())
             .then(action((data => {
                 this.todos = data
                 this.isLoading = false
-                console.log(data);
             })))
     }
 }

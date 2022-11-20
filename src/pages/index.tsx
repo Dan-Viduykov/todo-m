@@ -11,3 +11,7 @@ const HomePage: NextPage = () => {
 }
 
 export default HomePage
+
+// todo - - - при создании задачи поставить автофокус на title
+// todo - - - при создании задачи выделить с помощью focus выбранные поля
+// todo - - - 
