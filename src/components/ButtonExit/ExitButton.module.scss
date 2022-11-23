@@ -1,0 +1,22 @@
+@import '@/styles/main.scss';
+
+.button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: $color-secondary;
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    font-size: 28px;
+    color: $color-black;
+    transition: .2s;
+
+    &:hover {
+        box-shadow: 0 0 10px 1px $color-secondary;
+        transform: scale(1.1);
+    }
+    
+    &:active {
+        transform: scale(1.03);
+    }
+}
