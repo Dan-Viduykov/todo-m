@@ -1,6 +1,10 @@
 @import '@/styles/main.scss';
 
 .todo {
+    
+}
+
+.info {
     display: flex;
     align-items: center;
 }
@@ -59,7 +63,13 @@
 }
 
 .subInfo {
-    display: none;
+    height: 0;
+    overflow: hidden;
+    
+    &_show {
+        padding: 20px 0 0 30px;
+        height: 100%;
+    }
 }
 
 .description {

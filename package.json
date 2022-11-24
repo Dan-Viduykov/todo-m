@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start -p $PORT",
     "lint": "next lint",
-    "server": "json-server -w public/db.json -p 4000",
+    "server": "json-server-auth --watch db.json --port 8080 --middlewares ./range.js",
     "start-dev": "concurrently \"npm run server\" \"npm run dev\""
   },
   "dependencies": {
@@ -18,11 +18,13 @@
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
+    "axios": "^1.2.0",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",
     "next": "13.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.39.5",
     "sass": "^1.56.1",
     "typescript": "4.9.3",
     "uniqid": "^5.4.0"
@@ -31,6 +33,7 @@
     "@babel/plugin-proposal-decorators": "^7.20.2",
     "concurrently": "^7.5.0",
     "json-server": "^0.17.1",
+    "json-server-auth": "^2.1.0",
     "mobx": "^6.7.0",
     "mobx-react": "^7.6.0"
   }

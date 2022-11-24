@@ -11,9 +11,10 @@ interface TodoListProps {
 }
 
 const TodoList: FC<TodoListProps> = ({ className }) => {
-    useEffect(() => {
-        TodoStore.fetchTodos(filterStore.filterType);
-    }, [filterStore.filterType])
+    
+    // useEffect(() => {
+    //     TodoStore.fetchTodos(filterStore.filterType);
+    // }, [filterStore.filterType])
 
     const elements = TodoStore.todos.map(todo => (
         <li className={styles.item} key={todo.id}> 
