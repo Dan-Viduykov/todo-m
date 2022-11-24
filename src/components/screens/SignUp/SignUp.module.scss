@@ -53,3 +53,19 @@
         transform: scale(1.03);
     }
 }
+
+.info {
+    margin-top: 20px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.link {
+    margin-left: 8px;
+    color: $color-secondary;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

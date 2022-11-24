@@ -1,13 +1,13 @@
 import { NextPage } from "next"
 import Container from "@/components/Container";
-import Login from "@/components/screens/Login";
+import SignIn from "@/components/screens/SignIn";
 
-const LoginPage: NextPage = () => {
+const signInPage: NextPage = () => {
   return (
     <Container>
-        <Login />
+        <SignIn />
     </Container>
   )
 }
 
-export default LoginPage;
+export default signInPage;

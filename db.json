@@ -1,3 +1,25 @@
 {
-  "users": []
+  "users": [
+    {
+      "email": "dan@gmail.com",
+      "password": "$2a$10$AyOV4u3uAftShVLS6fHRm.A5rRPri0Tu3X/I9.tbLQv/zozQoSwui",
+      "login": "dan",
+      "todos": [],
+      "id": 1
+    },
+    {
+      "email": "danil@com.ru",
+      "password": "$2a$10$cpqzxIL2NQOCB3xOtZ6dtuvAFo07vdIGLsQ7XVSwJgFKLXMSXJrXK",
+      "login": "danil",
+      "todos": [],
+      "id": 2
+    },
+    {
+      "email": "den@den",
+      "password": "$2a$10$tHCzJTKF5eAFaq1NUEzm8OBbs3cWZg4AqSTz1aI6lfWwo0pzY3st.",
+      "login": "den",
+      "todos": [],
+      "id": 3
+    }
+  ]
 }

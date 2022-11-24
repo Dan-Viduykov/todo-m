@@ -2,9 +2,9 @@ import { action, makeAutoObservable, observable } from "mobx"
 import { ITodo } from "./todoStore";
 
 export interface IUser {
-    email: string;
-    id: string;
+    id: number;
     login: string;
+    email: string;
     todos: ITodo[];
 }
 

@@ -1,21 +1,32 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { useForm } from "react-hook-form";
-import TextField from "@/components/UI/TextField";
-import styles from "./Register.module.scss";
-import axios from "axios";
 import { useRouter } from "next/router";
-import userStore from "@/store/userStore";
+import axios from "axios";
 
-const Register: FC = () => {
+import userStore, { IUser } from "@/store/userStore";
+import TextField from "@/components/UI/TextField";
+import styles from "./SignUp.module.scss";
+import Link from "next/link";
+
+export interface IRespone {
+    accessToken: string;
+    user: IUser;
+}
+
+
+const SignUp: FC = () => {
     const router = useRouter()
     const { register, handleSubmit } = useForm();
     
     const registerUser = async (data: any) => {
+
         await axios.post('http://localhost:8080/register', {...data, todos: []})
             .then(res => {
-                localStorage.setItem('user', JSON.stringify(res.data.user))
-                userStore.setUser(res.data.user)
-                router.push('/')
+                const data: IRespone = res.data;
+
+                localStorage.setItem('user', JSON.stringify(data.user));
+                userStore.setUser(data.user);
+                router.push('/');
             })
     }
 
@@ -34,26 +45,24 @@ const Register: FC = () => {
                     />
                     <TextField
                         className={styles.input}
-                        placeholder="пароль"
-                        type="password"
-                        {...register('password')}
-                    />
-                    <TextField
-                        className={styles.input}
-                        placeholder="пароль"
-                        type="password"
-                        {...register('password')}
-                    />
-                    <TextField
-                        className={styles.input}
                         placeholder="Email"
                         type="email"
                         {...register('email')}
                     />
-                <button className={styles.buttonSumbit}>Создать</button>
+                    <TextField
+                        className={styles.input}
+                        placeholder="пароль"
+                        type="password"
+                        {...register('password')}
+                    />
+                <button className={styles.buttonSumbit}>Зарегестрироваться</button>
             </form>
+            <p className={styles.info}>
+                Уже зарегестрированы? 
+                <Link className={styles.link} href={'/signIn'}>Войдите в свою учётную запись</Link>
+            </p>
         </section>
     )
 }
 
-export default Register
+export default SignUp
