@@ -20,6 +20,13 @@
       "login": "den",
       "todos": [],
       "id": 3
+    },
+    {
+      "email": "dania@gmail.com",
+      "password": "$2a$10$IXg8g7srrItN6LirwledH.NKS/1.TIPYlpF8v5xaR2FHAXkPOvj0K",
+      "login": "dania",
+      "todos": [],
+      "id": 4
     }
   ]
 }
